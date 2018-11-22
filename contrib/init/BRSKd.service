@@ -1,0 +1,26 @@
+[Unit]
+Description=BRSK's distributed currency daemon
+After=network.target
+
+[Service]
+User=BRSK
+Group=BRSK
+
+Type=forking
+PIDFile=/var/lib/BRSKd/BRSKd.pid
+
+ExecStart=/usr/bin/BRSKd -daemon -pid=/var/lib/BRSKd/BRSKd.pid \
+          -conf=/etc/BRSK/BRSK.conf -datadir=/var/lib/BRSKd
+
+ExecStop=-/usr/bin/BRSK-cli -conf=/etc/BRSK/BRSK.conf \
+         -datadir=/var/lib/BRSKd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

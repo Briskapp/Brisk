@@ -1,0 +1,26 @@
+# /etc/conf.d/BRSKd: config file for /etc/init.d/BRSKd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/BRSK/BRSK.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/BRSKd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/BRSKd.pid"
+
+# Where to write BRSKd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/BRSKd"
+
+# User and group to own BRSKd process
+#BITCOIND_USER="BRSK"
+#BITCOIND_GROUP="BRSK"
+
+# Path to BRSKd executable
+#BITCOIND_BIN="/usr/bin/BRSKd"
+
+# Nice value to run BRSKd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
