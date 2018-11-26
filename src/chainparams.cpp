@@ -56,11 +56,11 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000006088dfe81e5bf5a3e6fccd9293d0b15ca2a13e905247efde7f054cf7d79"));
+    (0, uint256("0x00000609c979f1daf665e9850b0c05687c5f0f3b93146947360a6ff4282d23b9"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1542748453, // * UNIX timestamp of last checkpoint block
+    1543228683, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     1000        // * estimated number of transactions per day after checkpoint
@@ -72,7 +72,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1542748453,
+    1543228683,
     0,
     100};
 
@@ -81,7 +81,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     (0, uint256("0x00"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1542748453,
+    1543228683,
     0,
     100};
 
@@ -130,12 +130,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xa3;
-        pchMessageStart[1] = 0xbc;
-        pchMessageStart[2] = 0xd4;
-        pchMessageStart[3] = 0xc4;
+        pchMessageStart[0] = 0xb4;
+        pchMessageStart[1] = 0xdc;
+        pchMessageStart[2] = 0xe5;
+        pchMessageStart[3] = 0xa2;
         vAlertPubKey = ParseHex("04e30e5c8c285298534300ec0cb3d8d3d6ca3a3ca42276d7920e2b65629ef8cae9b1a8a619ca80fe6e61b09aea7850545eed705ef0a56f8e7d2277e0deeb297e60");
-        nDefaultPort = 17381;
+        nDefaultPort = 17384;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 210000000;
         nMaxReorganizationDepth = 100;
@@ -148,10 +148,10 @@ public:
         nMaturity = 10;
         nMasternodeCountDrift = 1;
         nMaxMoneyOut = 21000000 * COIN;
-        nLastPOWBlock = 499;
+        nLastPOWBlock = 199;
         nModifierUpdateBlock = 1; // 
 
-	const char* pszTimestamp = "Begin Brisk Genesis Block 1535647319";
+	const char* pszTimestamp = "Brisk - 1543228683 ";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -162,15 +162,15 @@ public:
 	genesis.hashPrevBlock = 0;
 	genesis.hashMerkleRoot = genesis.BuildMerkleTree();
 	genesis.nVersion = 1;
-	genesis.nTime    = 1542748453;
+	genesis.nTime    = 1543228683;
    	genesis.nBits    = 0x1e0ffff0;
-    	genesis.nNonce   = 5904556; 	
+    	genesis.nNonce   = 7956862; 	
 
 	//MineGenesis(genesis);
        
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000006088dfe81e5bf5a3e6fccd9293d0b15ca2a13e905247efde7f054cf7d79"));
-        assert(genesis.hashMerkleRoot == uint256("0xabd00f88316fdada512875f291ed0a127f69622e2fdbf7ea20ab71e3899057ce"));
+        assert(hashGenesisBlock == uint256("0x00000609c979f1daf665e9850b0c05687c5f0f3b93146947360a6ff4282d23b9"));
+        assert(genesis.hashMerkleRoot == uint256("0xe15cba9763e7c64ebde2de7ff749886f18aa5f8ca4e529c04330ba17083b6dd2"));
 
         // DNS Seeding
         vSeeds.push_back(CDNSSeedData("206.189.172.68", "206.189.174.230"));
@@ -179,16 +179,16 @@ public:
 	
 
         // BRSK addresses start with 'B'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 85);
         // BRSK script addresses start with 'B'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 25);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
         // BRSK private keys start with '9' or 'A'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 22);
         // BRSK BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // BRSK BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
-        // BRSK BIP44 coin type is '17381'
+        // BRSK BIP44 coin type is '17384'
         //  BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x49)(0x85).convert_to_container<std::vector<unsigned char> >();
 
@@ -204,8 +204,8 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "024a933d01e24928e15043c1c083b6454020fc864d56c2f977be9b38da2e6f4ceb";
-        strMasternodePoolDummyAddress = "MKCiDWHJA2LgoNnxhFr8XMnrHBakFyLQuW";
+        strSporkKey = "kWHqT6qA2hL8rvrQmqCrfnRTa9iHQwqrZsn1Ebftv1Yrjtp8YP";
+        strMasternodePoolDummyAddress = "bL3th7fW9crJUCFYRFKKudmh3aSpCJKBxV";
         nStartMasternodePayments = genesis.nTime; 
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
@@ -240,7 +240,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // BRSK: 1 day
         nTargetSpacing = 2 * 60;  // BRSK: 1 minute
-        nLastPOWBlock = 500;
+        nLastPOWBlock = 530;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 1;

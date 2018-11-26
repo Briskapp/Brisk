@@ -203,10 +203,10 @@ QT_TRANSLATE_NOOP("BRSK-core", ""
 QT_TRANSLATE_NOOP("BRSK-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("BRSK-core", "(17381 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("BRSK-core", "(17384 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("BRSK-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("BRSK-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("BRSK-core", "(must be 17381 for mainnet)"),
+QT_TRANSLATE_NOOP("BRSK-core", "(must be 17384 for mainnet)"),
 QT_TRANSLATE_NOOP("BRSK-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("BRSK-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("BRSK-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
